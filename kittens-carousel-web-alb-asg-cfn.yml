@@ -54,11 +54,10 @@ Resources:
               #! /bin/bash
               yum update -y
               yum install httpd -y
-              TOKEN="XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
-              FOLDER="https://$TOKEN@raw.githubusercontent.com/clarusway/cw-workshop/aws/pr-102/aws/projects/102-kittens-carousel-static-website-alb-asg/static-web/"
+              FOLDER="https://raw.githubusercontent.com/alex44596/alexrepo/master/static-web/"
               curl -s --create-dirs -o "/var/www/html/index.html" -L "$FOLDER"index.html
               curl -s --create-dirs -o "/var/www/html/cat0.jpg" -L "$FOLDER"cat0.jpg
-              curl -s --create-dirs -o "/var/www/html/cat1.jpg" -L "$FOLDER"cat1.jpg
+              curl -s --create-dirs -o "/var/www/html/ct1.jpg" -L "$FOLDER"cat1.jpg
               curl -s --create-dirs -o "/var/www/html/cat2.jpg" -L "$FOLDER"cat2.jpg
               systemctl start httpd
               systemctl enable httpd
@@ -77,12 +76,12 @@ Resources:
       SecurityGroups: 
         - !GetAtt ALBSecurityGroup.GroupId
       Subnets:
-        - subnet-c41ba589
-        - subnet-077c9758
-        - subnet-3ccd235a
-        - subnet-ed49bccc
-        - subnet-8d8dbfb3
-        - subnet-3246e63c
+        - subnet-f270d7d3
+        - subnet-e35e36ae
+        - subnet-838520dc
+        - subnet-0565bc63
+        - subnet-3514f804
+        - subnet-ec8210e2
       Type: application
   ALBListener:
     Type: AWS::ElasticLoadBalancingV2::Listener
